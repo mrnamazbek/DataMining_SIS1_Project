@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pkl
+*.joblib
+*.ipynb_checkpoints/
+
+# Environments
+.env
+.venv
+env/
+venv/
+
+# Data
+data_raw/
+data_processed/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
