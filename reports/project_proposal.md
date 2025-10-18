@@ -1,117 +1,119 @@
-# 🎓 Project Proposal: Home Credit Default Risk Prediction
-
-## 📋 Problem Statement
-
-**Проблема:** Банки и кредитные организации ежегодно теряют миллиарды долларов из-за клиентов, которые не возвращают кредиты (дефолт). Традиционные методы оценки кредитоспособности часто недостаточно точны и не учитывают все факторы риска.
-
-**Цель проекта:** Разработать модель машинного обучения для предсказания вероятности дефолта клиента на основе его социально-экономических характеристик и кредитной истории.
-
-## 🎯 Objectives (Цели)
-
-### Основные цели:
-1. **Построить модель классификации** для предсказания дефолта клиента (TARGET = 1)
-2. **Выявить ключевые факторы риска** влияющие на вероятность невозврата кредита
-3. **Провести комплексный анализ данных** включая очистку, EDA и визуализацию
-4. **Подготовить качественный датасет** для обучения моделей машинного обучения
-
-### Метрики успеха:
-- Точность модели (Accuracy) > 80%
-- AUC-ROC > 0.75
-- Выявление минимум 5 ключевых факторов риска
-
-## 🔍 Research Questions (Вопросы исследования)
-
-1. **Какие социально-экономические факторы** наиболее сильно влияют на вероятность дефолта?
-2. **Как возраст и семейное положение** связаны с кредитным риском?
-3. **Влияет ли уровень дохода и образование** на вероятность возврата кредита?
-4. **Можно ли повысить точность модели** с помощью обработки данных и feature engineering?
-5. **Какие внешние источники данных** (EXT_SOURCE_1, EXT_SOURCE_2, EXT_SOURCE_3) наиболее информативны?
-
-## 📊 Dataset Justification (Обоснование выбора датасета)
-
-### Почему Home Credit Default Risk?
-
-**✅ Соответствие требованиям:**
-- **Объем данных:** > 300,000 записей (307,507 строк в train)
-- **Количество признаков:** 122 признака (> 14 требуемых)
-- **Реальные данные:** Данные от реальной кредитной компании
-- **Открытый источник:** Kaggle Competition
-
-**✅ Практическая значимость:**
-- Решает актуальную бизнес-проблему
-- Применимо в реальной банковской практике
-- Высокая коммерческая ценность
-
-**✅ Техническая сложность:**
-- Смешанные типы данных (числовые, категориальные)
-- Пропущенные значения требуют обработки
-- Несбалансированные классы (дефолт ~8%)
-- Множественные источники данных
-
-## 📈 Expected Outcomes (Ожидаемые результаты)
-
-### SIS1 (Текущий этап):
-- Очищенный и подготовленный датасет
-- Комплексный EDA с визуализациями
-- Выявленные корреляции и паттерны
-- Готовность к построению моделей
-
-### SIS2 (Следующий этап):
-- Обученные модели машинного обучения
-- Сравнение алгоритмов по метрикам
-- Интерпретация важности признаков
-- Рекомендации для бизнеса
-
-## 🛠️ Methodology (Методология)
-
-### Этап 1: Data Preprocessing
-- Загрузка и объединение данных из всех источников
-- Обработка пропущенных значений
-- Кодирование категориальных переменных
-- Масштабирование числовых признаков
-
-### Этап 2: Exploratory Data Analysis
-- Статистический анализ распределений
-- Корреляционный анализ
-- Визуализация зависимостей
-- Выявление выбросов и аномалий
-
-### Этап 3: Feature Engineering
-- Создание новых признаков
-- Отбор наиболее информативных признаков
-- Обработка временных рядов
-
-## 📁 Project Structure
-
-```
-DataMining_SIS1_Project/
-├── data_raw/              # Исходные данные (CSV файлы)
-├── data_processed/        # Обработанные данные
-├── notebooks/             # Jupyter ноутбуки
-│   ├── 01_data_preprocessing.ipynb
-│   └── 02_eda.ipynb
-├── presentation/          # Слайды для защиты
-├── scripts/               # Вспомогательные Python скрипты
-├── reports/               # Отчеты и документация
-├── models/                # Сохраненные модели (SIS2)
-└── README.md              # Описание проекта
-```
-
-## ⏰ Timeline (Временные рамки)
-
-- **Week 1:** Data Preprocessing и очистка данных
-- **Week 2:** Exploratory Data Analysis и визуализация
-- **Week 3:** Подготовка презентации и защита SIS1
-- **Week 4-6:** SIS2 - Построение и сравнение моделей
-
-## 👥 Team Roles (Роли в команде)
-
-| Участник | Ответственность |
-|----------|-----------------|
-| **Участник 1** | Загрузка данных, очистка и предобработка |
-| **Участник 2** | EDA, визуализации, корреляционный анализ |
-| **Участник 3** | Презентация, оформление результатов |
+# Project Proposal: Home Credit Default Risk Prediction
 
 ---
 
-*Этот проект является частью курса Data Mining и направлен на практическое применение методов анализа данных для решения реальной бизнес-задачи.*
+## Problem Statement
+
+**Problem:** Banks lose billions of dollars each year because some customers don't pay back their loans. Traditional methods to check if someone can pay back a loan are not always accurate.
+
+**Goal:** Build a machine learning model to predict if a customer will default on their loan based on their personal and financial information.
+
+## Objectives
+
+### Main Goals:
+1. **Build a classification model** to predict loan default (TARGET = 1)
+2. **Find key risk factors** that affect loan repayment
+3. **Analyze data** including cleaning, EDA and visualization
+4. **Prepare quality dataset** for machine learning models
+
+### Success Metrics:
+- Model accuracy > 80%
+- AUC-ROC > 0.75
+- Find at least 5 key risk factors
+
+## Research Questions
+
+1. **What personal factors** most affect loan default risk?
+2. **How do age and family status** relate to loan risk?
+3. **Does income and education** affect loan repayment?
+4. **Can we improve model accuracy** with better data processing?
+5. **Which external data sources** are most useful for prediction?
+
+## Dataset Justification
+
+### Why Home Credit Default Risk?
+
+**Meets Requirements:**
+- **Data size:** > 300,000 records (307,507 rows in train)
+- **Number of features:** 122 features (> 14 required)
+- **Real data:** Data from actual credit company
+- **Open source:** Kaggle Competition
+
+**Practical Value:**
+- Solves real business problem
+- Can be used in real banking
+- High commercial value
+
+**Technical Challenge:**
+- Mixed data types (numbers, categories)
+- Missing values need handling
+- Unbalanced classes (default ~8%)
+- Multiple data sources
+
+## Expected Outcomes
+
+### SIS1 (Current Phase):
+- Clean and prepared dataset
+- Complete EDA with visualizations
+- Found correlations and patterns
+- Ready for model building
+
+### SIS2 (Next Phase):
+- Trained machine learning models
+- Algorithm comparison by metrics
+- Feature importance interpretation
+- Business recommendations
+
+## Methodology
+
+### Phase 1: Data Preprocessing
+- Load and combine data from all sources
+- Handle missing values
+- Encode categorical variables
+- Scale numerical features
+
+### Phase 2: Exploratory Data Analysis
+- Statistical analysis of distributions
+- Correlation analysis
+- Data visualization
+- Find outliers and anomalies
+
+### Phase 3: Feature Engineering
+- Create new features
+- Select most informative features
+- Handle time series data
+
+## Project Structure
+
+```
+DataMining_SIS1_Project/
+├── data_raw/              # Original data (CSV files)
+├── data_processed/        # Cleaned data
+├── notebooks/             # Jupyter notebooks
+│   ├── 01_data_preprocessing.ipynb
+│   └── 02_eda.ipynb
+├── presentation/          # Presentation slides
+├── scripts/               # Helper Python files
+├── reports/               # Reports and documentation
+├── models/                # Saved models (SIS2)
+└── README.md              # Project description
+```
+
+## Timeline
+
+- **Week 1:** Data Preprocessing and cleaning
+- **Week 2:** Exploratory Data Analysis and visualization
+- **Week 3:** Prepare presentation and defend SIS1
+- **Week 4-6:** SIS2 - Build and compare models
+
+## Team Roles
+
+| Member | Responsibility |
+|--------|----------------|
+| **Namazbek** | Data loading, cleaning and preprocessing |
+| **Shyntas** | EDA, visualizations, correlation analysis |
+| **Ibragim** | Presentation, results formatting |
+
+---
+
+*This project is part of the Data Mining course and aims to apply data analysis methods to solve real business problems.*

@@ -1,313 +1,313 @@
-# 🎓 Презентация проекта SIS1: Home Credit Default Risk Prediction
+# SIS1 Project Presentation: Home Credit Default Risk Prediction
 
 ---
 
-## Слайд 1: Титульный слайд
+## Slide 1: Title Slide
 
-# 🏦 **Home Credit Default Risk Prediction**
+# Home Credit Default Risk Prediction
 ## Data Mining Project - SIS1
 
-**Команда:** [Имена участников]  
-**Курс:** Data Mining  
-**Дата:** [Дата защиты]
+**Team:** [Team Member Names]  
+**Course:** Data Mining  
+**Date:** [Presentation Date]
 
 ---
 
-## Слайд 2: Проблема и цель
+## Slide 2: Problem and Goal
 
-### 🎯 **Проблема**
-- Банки теряют миллиарды долларов из-за клиентов, не возвращающих кредиты
-- Традиционные методы оценки кредитоспособности недостаточно точны
-- Необходимость автоматизации процесса принятия решений
+### Problem
+- Banks lose billions of dollars from customers who don't pay back loans
+- Traditional methods to check loan repayment are not accurate enough
+- Need to automate decision making process
 
-### 🎯 **Цель проекта**
-- Построить модель машинного обучения для предсказания дефолта
-- Выявить ключевые факторы риска
-- Повысить точность оценки кредитоспособности
-
----
-
-## Слайд 3: Описание датасета
-
-### 📊 **Home Credit Default Risk Dataset**
-
-| Параметр | Значение |
-|----------|----------|
-| **Источник** | Kaggle Competition |
-| **Объем данных** | 307,507 записей |
-| **Количество признаков** | 122 признака |
-| **Тип задачи** | Бинарная классификация |
-| **Целевая переменная** | TARGET (0/1) |
-| **Процент дефолтов** | ~8% |
-
-### ✅ **Соответствие требованиям**
-- ✅ > 40,000 записей
-- ✅ > 14 признаков  
-- ✅ Реальные данные
-- ✅ Открытый источник
+### Goal
+- Build machine learning model to predict loan default
+- Find key risk factors
+- Improve loan approval accuracy
 
 ---
 
-## Слайд 4: Структура данных
+## Slide 3: Dataset Description
 
-### 📁 **Основные таблицы**
-- **application_train.csv** - Основные данные клиентов
-- **application_test.csv** - Тестовые данные
-- **bureau.csv** - Кредитная история
-- **previous_application.csv** - Предыдущие заявки
-- **credit_card_balance.csv** - Баланс кредитных карт
+### Home Credit Default Risk Dataset
 
-### 🔍 **Ключевые признаки**
-- **Демографические:** возраст, пол, семейное положение
-- **Финансовые:** доход, сумма кредита, аннуитет
-- **Кредитная история:** предыдущие займы, просрочки
-- **Внешние источники:** EXT_SOURCE_1, EXT_SOURCE_2, EXT_SOURCE_3
+| Parameter | Value |
+|-----------|-------|
+| **Source** | Kaggle Competition |
+| **Data Size** | 307,507 records |
+| **Features** | 122 features |
+| **Task Type** | Binary classification |
+| **Target** | TARGET (0/1) |
+| **Default Rate** | ~8% |
 
----
-
-## Слайд 5: Предобработка данных
-
-### 🔧 **Этапы обработки**
-
-1. **Анализ пропущенных значений**
-   - Выявлено 67 колонок с пропущенными значениями
-   - Удалены колонки с >50% пропущенных значений
-
-2. **Заполнение пропусков**
-   - Числовые признаки → медиана
-   - Категориальные признаки → мода
-
-3. **Кодирование**
-   - LabelEncoder для категориальных переменных
-   - StandardScaler для числовых признаков
-
-### ✅ **Результат**
-- Обработано 307,507 записей
-- Подготовлено 120 признаков
-- Устранены все пропущенные значения
+### Meets Requirements
+- ✅ > 40,000 records
+- ✅ > 14 features  
+- ✅ Real data
+- ✅ Open source
 
 ---
 
-## Слайд 6: Exploratory Data Analysis
+## Slide 4: Data Structure
 
-### 📊 **Анализ целевой переменной**
+### Main Tables
+- **application_train.csv** - Main customer data
+- **application_test.csv** - Test data
+- **bureau.csv** - Credit history
+- **previous_application.csv** - Previous applications
+- **credit_card_balance.csv** - Credit card balances
+
+### Key Features
+- **Personal:** age, gender, family status
+- **Financial:** income, loan amount, annuity
+- **Credit History:** previous loans, late payments
+- **External Sources:** EXT_SOURCE_1, EXT_SOURCE_2, EXT_SOURCE_3
+
+---
+
+## Slide 5: Data Preprocessing
+
+### Processing Steps
+
+1. **Missing Values Analysis**
+   - Found 67 columns with missing values
+   - Removed columns with >50% missing values
+
+2. **Fill Missing Values**
+   - Numerical features → median
+   - Categorical features → mode
+
+3. **Encoding**
+   - LabelEncoder for categorical variables
+   - StandardScaler for numerical features
+
+### Result
+- Processed 307,507 records
+- Prepared 120 features
+- No missing values remaining
+
+---
+
+## Slide 6: Exploratory Data Analysis
+
+### Target Variable Analysis
 
 ```
-Распределение TARGET:
-├── Нет дефолта (0): 282,686 записей (91.9%)
-└── Дефолт (1): 24,821 записей (8.1%)
+TARGET Distribution:
+├── No Default (0): 282,686 records (91.9%)
+└── Default (1): 24,821 records (8.1%)
 
-Несбалансированность: 11.4:1
+Imbalance: 11.4:1
 ```
 
-### 🔍 **Ключевые наблюдения**
-- Классы несбалансированы (8% дефолтов)
-- Необходимо учитывать при обучении моделей
-- Возможность использования техник балансировки
+### Key Observations
+- Classes are unbalanced (8% defaults)
+- Need to consider this when training models
+- May need balancing techniques
 
 ---
 
-## Слайд 7: Статистический анализ
+## Slide 7: Statistical Analysis
 
-### 📈 **Основные статистики**
+### Main Statistics
 
-| Признак | Среднее | Медиана | Стд. отклонение |
-|---------|---------|---------|-----------------|
+| Feature | Mean | Median | Std Dev |
+|---------|------|--------|---------|
 | **AMT_INCOME_TOTAL** | 168,797 | 147,000 | 240,954 |
 | **AMT_CREDIT** | 599,025 | 513,000 | 402,531 |
 | **AMT_ANNUITY** | 27,106 | 24,975 | 15,433 |
 | **DAYS_BIRTH** | -15,653 | -15,700 | 4,465 |
 
-### 🎯 **Интерпретация**
-- Большой разброс в доходах клиентов
-- Высокая вариативность сумм кредитов
-- Стандартизация критически важна
+### Interpretation
+- Large variation in customer incomes
+- High variation in loan amounts
+- Standardization is critical
 
 ---
 
-## Слайд 8: Корреляционный анализ
+## Slide 8: Correlation Analysis
 
-### 🔗 **Топ-10 корреляций с TARGET**
+### Top 10 Correlations with TARGET
 
-| Признак | Корреляция | Интерпретация |
-|---------|------------|---------------|
-| **EXT_SOURCE_3** | -0.178 | Внешний скоринг |
-| **EXT_SOURCE_2** | -0.160 | Внешний скоринг |
-| **EXT_SOURCE_1** | -0.155 | Внешний скоринг |
-| **DAYS_BIRTH** | 0.078 | Возраст клиента |
-| **AMT_INCOME_TOTAL** | -0.072 | Общий доход |
+| Feature | Correlation | Interpretation |
+|---------|-------------|----------------|
+| **EXT_SOURCE_3** | -0.178 | External scoring |
+| **EXT_SOURCE_2** | -0.160 | External scoring |
+| **EXT_SOURCE_1** | -0.155 | External scoring |
+| **DAYS_BIRTH** | 0.078 | Customer age |
+| **AMT_INCOME_TOTAL** | -0.072 | Total income |
 
-### 💡 **Выводы**
-- Внешние источники данных наиболее информативны
-- Возраст положительно коррелирует с дефолтом
-- Доход отрицательно коррелирует с риском
-
----
-
-## Слайд 9: Визуализация распределений
-
-### 📊 **Распределение ключевых признаков**
-
-**AMT_INCOME_TOTAL (Доход):**
-- Логнормальное распределение
-- Выбросы в высоких доходах
-- Необходимость логарифмирования
-
-**DAYS_BIRTH (Возраст):**
-- Нормальное распределение
-- Пик в возрасте 30-40 лет
-- Четкая связь с дефолтом
-
-**AMT_CREDIT (Сумма кредита):**
-- Правостороннее распределение
-- Корреляция с доходом
-- Важный предиктор риска
+### Conclusions
+- External data sources most informative
+- Age positively correlates with default
+- Income negatively correlates with risk
 
 ---
 
-## Слайд 10: Анализ важных признаков
+## Slide 9: Distribution Visualization
 
-### 🎯 **Топ-15 важных признаков**
+### Key Feature Distributions
 
-1. **EXT_SOURCE_3** - Внешний скоринг 3
-2. **EXT_SOURCE_2** - Внешний скоринг 2  
-3. **EXT_SOURCE_1** - Внешний скоринг 1
-4. **DAYS_BIRTH** - Возраст клиента
-5. **AMT_INCOME_TOTAL** - Общий доход
-6. **AMT_ANNUITY** - Размер аннуитета
-7. **AMT_CREDIT** - Сумма кредита
-8. **REGION_POPULATION_RELATIVE** - Плотность населения
-9. **DAYS_EMPLOYED** - Стаж работы
-10. **CNT_FAM_MEMBERS** - Количество членов семьи
+**AMT_INCOME_TOTAL (Income):**
+- Log-normal distribution
+- Outliers in high incomes
+- May need log transformation
 
-### 💡 **Инсайты**
-- Внешние источники данных критически важны
-- Демографические факторы играют ключевую роль
-- Финансовые показатели значимы для прогноза
+**DAYS_BIRTH (Age):**
+- Normal distribution
+- Peak at age 30-40
+- Clear relationship with default
 
----
-
-## Слайд 11: Выводы и гипотезы
-
-### 🔍 **Основные выводы**
-
-1. **Несбалансированные данные** требуют специальных техник
-2. **Внешние источники** наиболее информативны
-3. **Возраст и доход** - ключевые демографические факторы
-4. **Финансовые показатели** важны для оценки риска
-
-### 🧪 **Гипотезы для SIS2**
-
-1. **Модели с балансировкой** покажут лучшие результаты
-2. **Ансамбли алгоритмов** превзойдут одиночные модели
-3. **Feature engineering** улучшит качество прогнозов
-4. **Внешние источники** будут ключевыми предикторами
+**AMT_CREDIT (Loan Amount):**
+- Right-skewed distribution
+- Correlates with income
+- Important risk predictor
 
 ---
 
-## Слайд 12: Следующие шаги (SIS2)
+## Slide 10: Important Features Analysis
 
-### 🚀 **План на SIS2**
+### Top 15 Important Features
 
-1. **Построение моделей**
+1. **EXT_SOURCE_3** - External scoring 3
+2. **EXT_SOURCE_2** - External scoring 2  
+3. **EXT_SOURCE_1** - External scoring 1
+4. **DAYS_BIRTH** - Customer age
+5. **AMT_INCOME_TOTAL** - Total income
+6. **AMT_ANNUITY** - Annuity amount
+7. **AMT_CREDIT** - Loan amount
+8. **REGION_POPULATION_RELATIVE** - Population density
+9. **DAYS_EMPLOYED** - Employment length
+10. **CNT_FAM_MEMBERS** - Family size
+
+### Insights
+- External data sources critically important
+- Demographic factors play key role
+- Financial indicators significant for prediction
+
+---
+
+## Slide 11: Conclusions and Hypotheses
+
+### Main Conclusions
+
+1. **Unbalanced data** requires special techniques
+2. **External sources** most informative
+3. **Age and income** key demographic factors
+4. **Financial indicators** important for risk assessment
+
+### Hypotheses for SIS2
+
+1. **Balanced models** will show better results
+2. **Ensemble algorithms** will outperform single models
+3. **Feature engineering** will improve prediction quality
+4. **External sources** will be key predictors
+
+---
+
+## Slide 12: Next Steps (SIS2)
+
+### Plan for SIS2
+
+1. **Build Models**
    - Logistic Regression
    - Random Forest
    - XGBoost
    - Neural Networks
 
-2. **Оценка качества**
+2. **Evaluate Quality**
    - Accuracy, Precision, Recall
    - F1-score, ROC-AUC
    - Cross-validation
 
-3. **Оптимизация**
+3. **Optimize**
    - Hyperparameter tuning
    - Feature selection
    - Ensemble methods
 
-4. **Интерпретация**
+4. **Interpret**
    - Feature importance
    - SHAP values
    - Business insights
 
 ---
 
-## Слайд 13: Технические детали
+## Slide 13: Technical Details
 
-### 🛠️ **Используемые технологии**
+### Technologies Used
 
 - **Python 3.11**
-- **Pandas, NumPy** - обработка данных
-- **Scikit-learn** - машинное обучение
-- **Matplotlib, Seaborn** - визуализация
-- **Jupyter Notebooks** - разработка
+- **Pandas, NumPy** - data processing
+- **Scikit-learn** - machine learning
+- **Matplotlib, Seaborn** - visualization
+- **Jupyter Notebooks** - development
 
-### 📁 **Структура проекта**
+### Project Structure
 ```
 DataMining_SIS1_Project/
-├── data_raw/              # Исходные данные
-├── data_processed/        # Обработанные данные
-├── notebooks/             # Jupyter ноутбуки
-├── presentation/          # Презентация
-├── reports/               # Отчеты
-└── README.md              # Документация
+├── data_raw/              # Original data
+├── data_processed/        # Processed data
+├── notebooks/             # Jupyter notebooks
+├── presentation/          # Presentation
+├── reports/               # Reports
+└── README.md              # Documentation
 ```
 
 ---
 
-## Слайд 14: Спасибо за внимание!
+## Slide 14: Thank You!
 
-### 🎯 **Ключевые достижения SIS1**
+### SIS1 Key Achievements
 
-✅ **Загружены и обработаны** реальные данные кредитной компании  
-✅ **Проведен комплексный EDA** с выявлением ключевых факторов  
-✅ **Подготовлен качественный датасет** для обучения моделей  
-✅ **Сформулированы гипотезы** для дальнейшего исследования  
+✅ **Loaded and processed** real credit company data  
+✅ **Conducted complete EDA** with key factor identification  
+✅ **Prepared quality dataset** for model training  
+✅ **Formulated hypotheses** for further research  
 
-### 🔮 **Готовность к SIS2**
-- Обработанные данные готовы к использованию
-- Выявлены важные признаки для моделирования
-- Понимание специфики задачи и данных
-- Четкий план дальнейших действий
+### Ready for SIS2
+- Processed data ready for use
+- Important features identified
+- Understanding of task and data
+- Clear plan for next steps
 
-### ❓ **Вопросы?**
+### Questions?
 
 ---
 
-## Приложение: Дополнительные слайды
+## Appendix: Additional Slides
 
-### Слайд A1: Методология обработки данных
+### Slide A1: Data Processing Methodology
 
 ```python
-# Пример кода обработки
+# Example processing code
 def preprocess_data(df):
-    # 1. Удаление колонок с >50% пропусков
+    # 1. Remove columns with >50% missing values
     df = remove_high_missing_cols(df, threshold=0.5)
     
-    # 2. Заполнение пропусков
+    # 2. Fill missing values
     df = fill_missing_values(df)
     
-    # 3. Кодирование категориальных переменных
+    # 3. Encode categorical variables
     df = encode_categorical(df)
     
-    # 4. Масштабирование числовых признаков
+    # 4. Scale numerical features
     df = scale_numeric_features(df)
     
     return df
 ```
 
-### Слайд A2: Статистические тесты
+### Slide A2: Statistical Tests
 
-**T-test для сравнения групп:**
-- Дефолт vs Нет дефолта
-- Значимые различия в доходах, возрасте, сумме кредита
-- p-value < 0.001 для всех ключевых признаков
+**T-test for group comparison:**
+- Default vs No Default
+- Significant differences in income, age, loan amount
+- p-value < 0.001 for all key features
 
-**Chi-square тест:**
-- Связь между категориальными признаками и дефолтом
-- Пол, семейное положение, образование
-- Статистически значимые ассоциации
+**Chi-square test:**
+- Relationship between categorical features and default
+- Gender, family status, education
+- Statistically significant associations
 
 ---
 
-*Презентация подготовлена для защиты проекта SIS1 по курсу Data Mining*
+*Presentation prepared for SIS1 defense in Data Mining course*
