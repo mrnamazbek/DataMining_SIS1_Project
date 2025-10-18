@@ -1,82 +1,82 @@
-# 📊 Data Mining Project — Home Credit Default Risk  
+# 🏦 Data Mining Project — Home Credit Default Risk Prediction
 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?color=36BCF7&lines=Big+Data+Engineering;Machine+Learning;Data+Mining;Data+Science)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?color=36BCF7&lines=Credit+Risk+Prediction;Machine+Learning;Data+Mining;Financial+Analytics)](https://git.io/typing-svg)
 
 ---
 
 ## 📌 Project Overview  
-This project is part of the **Data Mining course @ KBTU (MSc Program)**.  
-We aim to analyze the **Home Credit Default Risk** dataset from Kaggle and build predictive models to identify clients’ repayment abilities.  
+Этот проект является частью курса **Data Mining @ KBTU (MSc Program)**.  
+Мы анализируем датасет **Home Credit Default Risk** с Kaggle и строим модели для предсказания способности клиентов возвращать кредиты.  
 
-**Dataset:** [Home Credit Default Risk](https://www.kaggle.com/competitions/home-credit-default-risk)  
+**Датасет:** [Home Credit Default Risk](https://www.kaggle.com/competitions/home-credit-default-risk)  
 
-### ✅ Why this dataset?  
-- **Open-source & reliable** → Kaggle official competition dataset.  
-- **Size** → Over **300,000+ instances**.  
-- **Richness** → More than **120 features** including demographic, credit, and behavioral data.  
-- **Real-world impact** → Predicting loan default risk is one of the most important problems in banking and fintech.  
-
----
-
-## 🎯 Project Requirements  
-
-- More than **14 features** ✅  
-- Over **40,000 instances** ✅  
-- Open-source dataset ✅  
-- Group project (max 3 students) ✅  
+### ✅ Почему этот датасет?  
+- **Открытый и надежный** → Официальный датасет соревнования Kaggle  
+- **Размер** → Более **300,000+ записей**  
+- **Богатство данных** → Более **120 признаков** включая демографические, кредитные и поведенческие данные  
+- **Реальная значимость** → Предсказание кредитного риска - одна из важнейших задач в банковской сфере и финтехе  
 
 ---
 
-## 📑 Deliverables  
+## 🎯 Требования проекта  
 
-### Part 1 – SIS 1  
-
-1. **Project Proposal**  
-   - Problem statement & objectives.  
-   - Research questions or hypotheses.  
-   - Justification of dataset choice.  
-
-2. **Dataset Work**  
-   - Data collection (from Kaggle).  
-   - Dataset description (size, features, type, source).  
-   - Data cleaning (missing values, outliers, inconsistencies).  
-   - Data transformation (scaling, encoding, feature selection).  
-
-3. **Exploratory Data Analysis (EDA)**  
-   - Summary statistics (mean, variance, distribution).  
-   - Correlations between variables.  
-   - Visualizations (histograms, scatter plots, heatmaps).  
-   - Initial insights.  
-
-4. **Presentation**  
-   - Problem statement.  
-   - Dataset.  
-   - Preprocessing steps.  
-   - EDA results.  
+- Более **14 признаков** ✅  
+- Более **40,000 записей** ✅  
+- Открытый датасет ✅  
+- Групповой проект (макс. 3 студента) ✅  
 
 ---
 
-### Part 2 – SIS 2  
+## 📑 Результаты проекта  
 
-1. **Data Mining Techniques**  
-   - Apply **4–5 algorithms** (classification/regression).  
-   - Justify algorithm selection.  
+### Часть 1 – SIS 1 ✅ ЗАВЕРШЕНО
 
-2. **Model Evaluation & Comparison**  
-   - Metrics: Accuracy, Precision/Recall, RMSE, AUC.  
-   - Cross-validation or train-test split.  
-   - Compare performance.  
+1. **Project Proposal** ✅  
+   - Описание проблемы и целей  
+   - Исследовательские вопросы и гипотезы  
+   - Обоснование выбора датасета  
 
-3. **Results & Interpretation**  
-   - Confusion matrix, ROC curve, feature importance.  
-   - Highlight key insights.  
-   - Discuss real-world meaning of results.  
+2. **Работа с данными** ✅  
+   - Загрузка данных (с Kaggle)  
+   - Описание датасета (размер, признаки, тип, источник)  
+   - Очистка данных (пропущенные значения, выбросы, несоответствия)  
+   - Преобразование данных (масштабирование, кодирование, отбор признаков)  
 
-4. **Presentation**  
-   - Introduction & background.  
-   - Dataset & preprocessing (recap).  
-   - Methodology (algorithms).  
-   - Results & evaluation.  
+3. **Exploratory Data Analysis (EDA)** ✅  
+   - Описательная статистика (среднее, дисперсия, распределение)  
+   - Корреляции между переменными  
+   - Визуализации (гистограммы, scatter plots, тепловые карты)  
+   - Первичные инсайты  
+
+4. **Презентация** ✅  
+   - Описание проблемы  
+   - Датасет  
+   - Этапы предобработки  
+   - Результаты EDA  
+
+---
+
+### Часть 2 – SIS 2 🔄 В ПЛАНАХ
+
+1. **Техники Data Mining**  
+   - Применение **4–5 алгоритмов** (классификация/регрессия)  
+   - Обоснование выбора алгоритмов  
+
+2. **Оценка и сравнение моделей**  
+   - Метрики: Accuracy, Precision/Recall, RMSE, AUC  
+   - Cross-validation или train-test split  
+   - Сравнение производительности  
+
+3. **Результаты и интерпретация**  
+   - Матрица ошибок, ROC кривая, важность признаков  
+   - Выделение ключевых инсайтов  
+   - Обсуждение реального значения результатов  
+
+4. **Презентация**  
+   - Введение и предыстория  
+   - Датасет и предобработка (повтор)  
+   - Методология (алгоритмы)  
+   - Результаты и оценка  
 
 ---
 
@@ -102,32 +102,78 @@ We aim to analyze the **Home Credit Default Risk** dataset from Kaggle and build
 
 ---
 
-## 🚀 Project Roadmap  
+## 📁 Структура проекта  
 
-1. **Dataset download & setup** (Google Colab / PyCharm).  
-2. **Data cleaning** (missing values, outliers).  
-3. **Feature engineering** (scaling, encoding, transformations).  
-4. **Exploratory Data Analysis (EDA)** with visualizations.  
-5. **Modeling** with multiple algorithms.  
-6. **Evaluation** (metrics, comparison).  
-7. **Interpretation & presentation**.  
+```
+DataMining_SIS1_Project/
+├── data_raw/                    # Исходные данные (CSV файлы)
+│   ├── application_train.csv    # Основные данные для обучения
+│   ├── application_test.csv     # Тестовые данные
+│   ├── bureau.csv              # Кредитная история
+│   └── ...
+├── data_processed/              # Обработанные данные
+│   ├── train_processed.csv      # Обработанные данные для обучения
+│   ├── test_processed.csv       # Обработанные тестовые данные
+│   └── feature_info.json       # Информация о признаках
+├── notebooks/                    # Jupyter ноутбуки
+│   ├── 01_data_preprocessing.ipynb  # Предобработка данных
+│   └── 02_eda.ipynb            # Exploratory Data Analysis
+├── presentation/                 # Презентация для защиты
+│   └── sis1_presentation.md     # Слайды презентации
+├── reports/                      # Отчеты и документация
+│   └── project_proposal.md      # Project Proposal
+├── scripts/                      # Вспомогательные Python скрипты
+├── models/                       # Сохраненные модели (SIS2)
+├── requirements.txt              # Зависимости Python
+└── README.md                     # Документация проекта
+```
 
 ---
 
-## 📊 Example Visualizations  
+## 🚀 Дорожная карта проекта  
 
-📈 **Correlation Heatmap**  
-📉 **Loan default distribution**  
-🧩 **Feature importance plots**  
+### ✅ SIS 1 - ЗАВЕРШЕНО
+1. **Загрузка и настройка датасета** ✅  
+2. **Очистка данных** (пропущенные значения, выбросы) ✅  
+3. **Feature engineering** (масштабирование, кодирование, преобразования) ✅  
+4. **Exploratory Data Analysis (EDA)** с визуализациями ✅  
+5. **Подготовка презентации** ✅  
+
+### 🔄 SIS 2 - В ПЛАНАХ
+6. **Моделирование** с несколькими алгоритмами  
+7. **Оценка** (метрики, сравнение)  
+8. **Интерпретация и презентация**  
 
 ---
 
-## 📫 Team & Contacts  
+## 📊 Ключевые результаты SIS1  
 
-👨‍💻 Namazbek Bekzhanov — MSc @ KBTU  
+### 📈 **Статистика датасета**
+- **307,507 записей** клиентов
+- **122 признака** (демографические, финансовые, кредитные)
+- **8.1% дефолтов** (несбалансированные данные)
+- **0 пропущенных значений** после обработки
+
+### 🔍 **Ключевые инсайты**
+- **Внешние источники данных** (EXT_SOURCE_1,2,3) наиболее информативны
+- **Возраст клиента** положительно коррелирует с дефолтом
+- **Доход** отрицательно коррелирует с риском
+- **Финансовые показатели** критически важны для прогноза
+
+### 🛠️ **Технические достижения**
+- Полная автоматизация предобработки данных
+- Комплексный EDA с визуализациями
+- Готовый pipeline для обучения моделей
+- Качественная документация и презентация
+
+---
+
+## 📫 Команда и контакты  
+
+👨‍💻 **Namazbek Bekzhanov** — MSc @ KBTU  
 📧 [namazbekzhan@gmail.com](mailto:namazbekzhan@gmail.com)  
 🔗 [LinkedIn](https://www.linkedin.com/in/namazbek-bekzhanov/)  
 
 ---
 
-⚙️ *Turning raw data into real insights — the essence of Data Mining.*  
+⚙️ *Превращаем сырые данные в реальные инсайты — суть Data Mining.*  
