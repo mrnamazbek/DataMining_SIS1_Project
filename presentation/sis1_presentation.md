@@ -4,237 +4,277 @@
 
 ## Slide 1: Title Slide
 
-# Home Credit Default Risk Prediction
+# 🏦 Home Credit Default Risk Prediction
 ## Data Mining Project - SIS1
 
-**Team:** [Team Member Names]  
+**Team:** Namazbek, Shyntas, Ibragim  
 **Course:** Data Mining  
-**Date:** [Presentation Date]
+**Date:** 21.10.25  
 
 ---
 
 ## Slide 2: Problem and Goal
 
-### Problem
-- Banks lose billions of dollars from customers who don't pay back loans
-- Traditional methods to check loan repayment are not accurate enough
-- Need to automate decision making process
+### 🚨 The Problem
+- Banks lose **billions of dollars** each year from bad loans
+- Traditional credit checks are **not accurate enough**
+- Need **better ways** to predict who will pay back loans
 
-### Goal
-- Build machine learning model to predict loan default
-- Find key risk factors
-- Improve loan approval accuracy
+### 🎯 Our Goal
+- Build **machine learning model** to predict loan defaults
+- Find **key risk factors** that matter most
+- Help banks make **better decisions**
 
 ---
 
 ## Slide 3: Dataset Description
 
-### Home Credit Default Risk Dataset
+### 📊 Home Credit Default Risk Dataset
 
 | Parameter | Value |
 |-----------|-------|
 | **Source** | Kaggle Competition |
 | **Data Size** | 307,507 records |
-| **Features** | 122 features |
+| **Original Features** | 122 features |
+| **Selected Features** | 40 features |
 | **Task Type** | Binary classification |
 | **Target** | TARGET (0/1) |
 | **Default Rate** | ~8% |
 
-### Meets Requirements
-- ✅ > 40,000 records
-- ✅ > 14 features  
-- ✅ Real data
-- ✅ Open source
+### ✅ Meets All Requirements
+- ✅ **> 40,000 records** (307,507)
+- ✅ **> 14 features** (40 selected)
+- ✅ **Real data** from actual bank
+- ✅ **Open source** dataset
 
 ---
 
 ## Slide 4: Data Structure
 
-### Main Tables
-- **application_train.csv** - Main customer data
-- **application_test.csv** - Test data
+### 📁 Main Data Files
+- **application_train.csv** - Main customer data (307,507 records)
+- **application_test.csv** - Test data (48,746 records)
 - **bureau.csv** - Credit history
 - **previous_application.csv** - Previous applications
 - **credit_card_balance.csv** - Credit card balances
 
-### Key Features
-- **Personal:** age, gender, family status
-- **Financial:** income, loan amount, annuity
-- **Credit History:** previous loans, late payments
-- **External Sources:** EXT_SOURCE_1, EXT_SOURCE_2, EXT_SOURCE_3
+### 🔍 Key Feature Categories
+- **👤 Demographics:** age, gender, family size
+- **💰 Financial:** income, loan amount, payments
+- **📊 External Sources:** EXT_SOURCE_2, EXT_SOURCE_3
+- **🏠 Housing:** owns car, owns house, housing type
+- **💼 Employment:** job type, education, work experience
 
 ---
 
-## Slide 5: Data Preprocessing
+## Slide 5: Feature Selection Strategy
 
-### Processing Steps
+### 🎯 Why We Selected Only 40 Features?
 
-1. **Missing Values Analysis**
-   - Found 67 columns with missing values
+**Original:** 122 features → **Selected:** 40 features (67% reduction)
+
+### 📋 Feature Categories Selected:
+
+| Category | Features | Examples |
+|----------|----------|----------|
+| **👤 Demographics** | 4 | Gender, Age, Children, Family Size |
+| **💰 Financial** | 4 | Income, Credit Amount, Payments |
+| **📊 External Sources** | 2 | EXT_SOURCE_2, EXT_SOURCE_3 |
+| **💼 Employment** | 4 | Job Type, Education, Experience |
+| **🏠 Housing** | 3 | Owns Car, Owns House, Housing Type |
+| **👨‍👩‍👧‍👦 Family** | 2 | Family Status, Suite Type |
+| **🌍 Regional** | 3 | Population, Region Rating |
+| **🏦 Credit Bureau** | 6 | Credit Requests by Time |
+| **👥 Social Circle** | 4 | Friends with Problems |
+| **⏰ Application Time** | 2 | Day, Hour of Application |
+| **📞 Contact Info** | 6 | Phone, Email Availability |
+
+---
+
+## Slide 6: Data Preprocessing
+
+### 🔧 Processing Steps
+
+1. **🔍 Missing Values Analysis**
+   - Found columns with missing data
    - Removed columns with >50% missing values
 
-2. **Fill Missing Values**
-   - Numerical features → median
-   - Categorical features → mode
+2. **📝 Fill Missing Values**
+   - **Numbers** → median value
+   - **Categories** → most common value
 
-3. **Encoding**
-   - LabelEncoder for categorical variables
-   - StandardScaler for numerical features
+3. **🔄 Encoding**
+   - **Categories** → numbers (LabelEncoder)
+   - **Numbers** → scaled (StandardScaler)
 
-### Result
-- Processed 307,507 records
-- Prepared 120 features
-- No missing values remaining
+### ✅ Result
+- **307,507 records** processed
+- **40 features** prepared
+- **0 missing values** remaining
+- **Ready for machine learning**
 
 ---
 
-## Slide 6: Exploratory Data Analysis
+## Slide 7: Target Variable Analysis
 
-### Target Variable Analysis
+### 📊 Default Distribution
 
 ```
 TARGET Distribution:
-├── No Default (0): 282,686 records (91.9%)
-└── Default (1): 24,821 records (8.1%)
+├── ✅ No Default (0): 282,686 records (91.9%)
+└── ❌ Default (1): 24,821 records (8.1%)
 
-Imbalance: 11.4:1
+Imbalance Ratio: 11.4:1
 ```
 
-### Key Observations
-- Classes are unbalanced (8% defaults)
-- Need to consider this when training models
-- May need balancing techniques
+### 🎯 Key Observations
+- **8% default rate** - normal for credit data
+- **Unbalanced classes** - need special techniques
+- **Most people pay back** their loans
 
 ---
 
-## Slide 7: Statistical Analysis
+## Slide 8: Statistical Analysis
 
-### Main Statistics
+### 📈 Main Statistics
 
-| Feature | Mean | Median | Std Dev |
-|---------|------|--------|---------|
-| **AMT_INCOME_TOTAL** | 168,797 | 147,000 | 240,954 |
-| **AMT_CREDIT** | 599,025 | 513,000 | 402,531 |
-| **AMT_ANNUITY** | 27,106 | 24,975 | 15,433 |
-| **DAYS_BIRTH** | -15,653 | -15,700 | 4,465 |
+| Feature | Mean | Median | What It Means |
+|---------|------|--------|---------------|
+| **AMT_INCOME_TOTAL** | 168,797 | 147,000 | Customer income |
+| **AMT_CREDIT** | 599,025 | 513,000 | Loan amount |
+| **AMT_ANNUITY** | 27,106 | 24,975 | Monthly payment |
+| **DAYS_BIRTH** | -15,653 | -15,700 | Customer age |
 
-### Interpretation
-- Large variation in customer incomes
-- High variation in loan amounts
-- Standardization is critical
+### 💡 Interpretation
+- **Large income variation** - different customer types
+- **High loan amounts** - big financial decisions
+- **Standardization needed** - different scales
 
 ---
 
-## Slide 8: Correlation Analysis
+## Slide 9: Correlation Analysis
 
-### Top 10 Correlations with TARGET
+### 🔗 Top 10 Correlations with TARGET
 
-| Feature | Correlation | Interpretation |
-|---------|-------------|----------------|
-| **EXT_SOURCE_3** | -0.178 | External scoring |
-| **EXT_SOURCE_2** | -0.160 | External scoring |
-| **EXT_SOURCE_1** | -0.155 | External scoring |
+| Feature | Correlation | What It Means |
+|---------|-------------|---------------|
+| **EXT_SOURCE_3** | -0.178 | External credit score 3 |
+| **EXT_SOURCE_2** | -0.160 | External credit score 2 |
 | **DAYS_BIRTH** | 0.078 | Customer age |
 | **AMT_INCOME_TOTAL** | -0.072 | Total income |
+| **AMT_ANNUITY** | -0.065 | Monthly payment |
+| **AMT_CREDIT** | -0.060 | Loan amount |
+| **REGION_POPULATION_RELATIVE** | -0.055 | Population density |
+| **DAYS_EMPLOYED** | -0.052 | Work experience |
+| **CNT_FAM_MEMBERS** | 0.048 | Family size |
+| **AMT_GOODS_PRICE** | -0.045 | Goods price |
 
-### Conclusions
-- External data sources most informative
-- Age positively correlates with default
-- Income negatively correlates with risk
+### 🎯 Key Insights
+- **External sources** most important (EXT_SOURCE_2, EXT_SOURCE_3)
+- **Age** increases default risk
+- **Income** decreases default risk
+- **Financial factors** matter most
 
 ---
 
-## Slide 9: Distribution Visualization
+## Slide 10: Feature Distribution Analysis
 
-### Key Feature Distributions
+### 📊 Key Feature Distributions
 
-**AMT_INCOME_TOTAL (Income):**
-- Log-normal distribution
-- Outliers in high incomes
-- May need log transformation
+**💰 AMT_INCOME_TOTAL (Income):**
+- Most people earn 100,000-200,000
+- Some very high earners (outliers)
+- Higher income = lower default risk
 
-**DAYS_BIRTH (Age):**
-- Normal distribution
+**👤 DAYS_BIRTH (Age):**
 - Peak at age 30-40
+- Older people = higher default risk
 - Clear relationship with default
 
-**AMT_CREDIT (Loan Amount):**
-- Right-skewed distribution
+**🏦 AMT_CREDIT (Loan Amount):**
+- Most loans 300,000-800,000
+- Higher amounts = higher risk
 - Correlates with income
-- Important risk predictor
 
 ---
 
-## Slide 10: Important Features Analysis
+## Slide 11: Important Features Analysis
 
-### Top 15 Important Features
+### 🏆 Top 15 Most Important Features
 
-1. **EXT_SOURCE_3** - External scoring 3
-2. **EXT_SOURCE_2** - External scoring 2  
-3. **EXT_SOURCE_1** - External scoring 1
-4. **DAYS_BIRTH** - Customer age
-5. **AMT_INCOME_TOTAL** - Total income
-6. **AMT_ANNUITY** - Annuity amount
-7. **AMT_CREDIT** - Loan amount
-8. **REGION_POPULATION_RELATIVE** - Population density
-9. **DAYS_EMPLOYED** - Employment length
-10. **CNT_FAM_MEMBERS** - Family size
+1. **📊 EXT_SOURCE_3** - External credit score 3
+2. **📊 EXT_SOURCE_2** - External credit score 2
+3. **👤 DAYS_BIRTH** - Customer age
+4. **💰 AMT_INCOME_TOTAL** - Total income
+5. **💳 AMT_ANNUITY** - Monthly payment
+6. **🏦 AMT_CREDIT** - Loan amount
+7. **🌍 REGION_POPULATION_RELATIVE** - Population density
+8. **💼 DAYS_EMPLOYED** - Work experience
+9. **👨‍👩‍👧‍👦 CNT_FAM_MEMBERS** - Family size
+10. **🛒 AMT_GOODS_PRICE** - Goods price
+11. **🏠 NAME_HOUSING_TYPE** - Housing type
+12. **👤 CODE_GENDER** - Gender
+13. **👨‍👩‍👧‍👦 CNT_CHILDREN** - Number of children
+14. **💼 NAME_INCOME_TYPE** - Income type
+15. **🎓 NAME_EDUCATION_TYPE** - Education level
 
-### Insights
-- External data sources critically important
-- Demographic factors play key role
-- Financial indicators significant for prediction
-
----
-
-## Slide 11: Conclusions and Hypotheses
-
-### Main Conclusions
-
-1. **Unbalanced data** requires special techniques
-2. **External sources** most informative
-3. **Age and income** key demographic factors
-4. **Financial indicators** important for risk assessment
-
-### Hypotheses for SIS2
-
-1. **Balanced models** will show better results
-2. **Ensemble algorithms** will outperform single models
-3. **Feature engineering** will improve prediction quality
-4. **External sources** will be key predictors
+### 💡 Key Insights
+- **External data sources** critically important
+- **Demographics** play key role
+- **Financial indicators** significant for prediction
 
 ---
 
-## Slide 12: Next Steps (SIS2)
+## Slide 12: Conclusions and Hypotheses
 
-### Plan for SIS2
+### 🎯 Main Conclusions
 
-1. **Build Models**
+1. **⚖️ Unbalanced data** requires special techniques
+2. **📊 External sources** most informative
+3. **👤 Age and income** key demographic factors
+4. **💰 Financial indicators** important for risk assessment
+5. **🏠 Housing and family** status matters
+
+### 🔮 Hypotheses for SIS2
+
+1. **⚖️ Balanced models** will show better results
+2. **🤝 Ensemble algorithms** will outperform single models
+3. **🔧 Feature engineering** will improve prediction quality
+4. **📊 External sources** will be key predictors
+5. **🎯 Top 20 features** will be enough for good models
+
+---
+
+## Slide 13: Next Steps (SIS2)
+
+### 🚀 Plan for SIS2
+
+1. **🤖 Build Models**
    - Logistic Regression
    - Random Forest
    - XGBoost
    - Neural Networks
 
-2. **Evaluate Quality**
+2. **📊 Evaluate Quality**
    - Accuracy, Precision, Recall
    - F1-score, ROC-AUC
    - Cross-validation
 
-3. **Optimize**
+3. **⚙️ Optimize**
    - Hyperparameter tuning
    - Feature selection
    - Ensemble methods
 
-4. **Interpret**
+4. **🔍 Interpret**
    - Feature importance
    - SHAP values
    - Business insights
 
 ---
 
-## Slide 13: Technical Details
+## Slide 14: Technical Details
 
-### Technologies Used
+### 💻 Technologies Used
 
 - **Python 3.11**
 - **Pandas, NumPy** - data processing
@@ -242,72 +282,65 @@ Imbalance: 11.4:1
 - **Matplotlib, Seaborn** - visualization
 - **Jupyter Notebooks** - development
 
-### Project Structure
+### 📁 Project Structure
 ```
 DataMining_SIS1_Project/
-├── data_raw/              # Original data
-├── data_processed/        # Processed data
-├── notebooks/             # Jupyter notebooks
-├── presentation/          # Presentation
-├── reports/               # Reports
-└── README.md              # Documentation
+├── 📁 data_raw/              # Original data
+├── 📁 data_processed/        # Processed data
+├── 📁 notebooks/             # Jupyter notebooks
+├── 📁 presentation/          # Presentation
+├── 📁 reports/               # Reports
+├── 📁 scripts/               # Helper scripts
+└── 📄 README.md              # Documentation
 ```
 
 ---
 
-## Slide 14: Thank You!
+## Slide 15: Thank You!
 
-### SIS1 Key Achievements
+### ✅ SIS1 Key Achievements
 
 ✅ **Loaded and processed** real credit company data  
+✅ **Selected 40 best features** from 122 original  
 ✅ **Conducted complete EDA** with key factor identification  
 ✅ **Prepared quality dataset** for model training  
 ✅ **Formulated hypotheses** for further research  
 
-### Ready for SIS2
-- Processed data ready for use
-- Important features identified
-- Understanding of task and data
-- Clear plan for next steps
+### 🚀 Ready for SIS2
+- **Processed data** ready for use
+- **Important features** identified
+- **Understanding** of task and data
+- **Clear plan** for next steps
 
-### Questions?
+### ❓ Questions?
 
 ---
 
-## Appendix: Additional Slides
+## Appendix: Additional Information
 
-### Slide A1: Data Processing Methodology
+### 📊 Feature Selection Results
 
-```python
-# Example processing code
-def preprocess_data(df):
-    # 1. Remove columns with >50% missing values
-    df = remove_high_missing_cols(df, threshold=0.5)
-    
-    # 2. Fill missing values
-    df = fill_missing_values(df)
-    
-    # 3. Encode categorical variables
-    df = encode_categorical(df)
-    
-    # 4. Scale numerical features
-    df = scale_numeric_features(df)
-    
-    return df
-```
+**Original Dataset:** 122 features  
+**After Selection:** 40 features  
+**Reduction:** 67%  
+**Quality:** Improved (removed noise)
 
-### Slide A2: Statistical Tests
+### 🎯 Why This Approach Works
 
-**T-test for group comparison:**
-- Default vs No Default
-- Significant differences in income, age, loan amount
-- p-value < 0.001 for all key features
+1. **Faster training** - less data to process
+2. **Better accuracy** - focus on important features
+3. **Easier interpretation** - fewer features to understand
+4. **Less overfitting** - simpler models
 
-**Chi-square test:**
-- Relationship between categorical features and default
-- Gender, family status, education
-- Statistically significant associations
+### 📈 Expected SIS2 Results
+
+- **Accuracy:** >80%
+- **AUC-ROC:** >0.75
+- **Key Features:** Top 20 will be sufficient
+- **Best Model:** Ensemble of multiple algorithms
 
 ---
 
 *Presentation prepared for SIS1 defense in Data Mining course*
+*Team: Namazbek, Shyntas, Ibragim*
+*Date: 21.10.25*
